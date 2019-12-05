@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FormsPageTemplate.Pages.BasePage">
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="DeepSkyBlue">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{TemplateBinding Title}" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center" 
+                           FontSize="18" Grid.Column="1" Margin="10,20" />
+                    <StackLayout BindableLayout.ItemsSource="{TemplateBinding ToolbarItems}" Grid.Column="2" Orientation="Horizontal" HorizontalOptions="End">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button Text="{Binding Text}" BackgroundColor="Transparent" BorderWidth="0" TextColor="White" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </Grid>
+                <ContentPresenter Grid.Row="1" />
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+</ContentPage>
